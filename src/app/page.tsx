@@ -1,7 +1,9 @@
 "use client";
-import { useState } from 'react';
+import { use, useState } from 'react';
+import { useRouter } from 'next/navigation';
 
 const TodoList = () => {
+  const router = useRouter();
   const [task, setTask] = useState<string>('');
   const [tasks, setTasks] = useState<string[]>([]);
 
@@ -33,6 +35,14 @@ const TodoList = () => {
         >
           Add Task
         </button>
+
+        <button
+          onClick={() => router.push('/about')}
+          className="mt-2 w-full bg-pink-200 text-white py-2 rounded-lg hover:bg-green-300 transition-colors"
+        >
+          Go to About page
+        </button>
+
       </div>
       <ul className="mt-6 w-full max-w-md">
         {tasks.map((task, index) => (

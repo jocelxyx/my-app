@@ -11,7 +11,7 @@ const supabase = createClient(supabaseUrl, supabaseKey);
 /**
  * Handle GET requests - Fetch all tasks
  */
-export async function GET(request: NextRequest) {
+export async function GET() {
   try {
     const { data, error } = await supabase.from('list').select('*');
     if (error) throw error;
